@@ -1,17 +1,15 @@
-package Part1.ObjectsAndClasses.Elevator;
+package main.java.Part1.ObjectsAndClasses.Elevator;
+
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*
-        Раскомментировать после "заполнения" класса Elevator
-         */
+        Elevator elevator = new Elevator(-3, 26);
 
-//        Elevator elevator = new Elevator(-3, 26);
-//
-//        while(true) {
-//            System.out.print("Введите номер этажа: ");
-//            int floor = new Scanner(System.in).nextInt();
-//            elevator.move(floor);
-//        }
+        while(true) {
+            System.out.print("Enter the floor number: ");
+            int floor = new Scanner(System.in).nextInt();
+            elevator.move(floor);
+        }
     }
 }

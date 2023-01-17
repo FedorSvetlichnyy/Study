@@ -1,4 +1,4 @@
-package main.java.Part1.ObjectsAndClasses.Arithmetic;
+package Part1.ObjectsAndClasses.Arithmetic;
 
 public class Arithmetic {
     private int a;
@@ -8,16 +8,16 @@ public class Arithmetic {
         this.a = a;
         this.b = b;
     }
-    public int Sum() {
+    public int sum() {
         return a + b;
     }
-    public int Multiplication() {
+    public int multiplication() {
         return a * b;
     }
-    public int Min() {
+    public int min() {
         return (a <= b) ? a : b;
     }
-    public int Max() {
+    public int max() {
         return (a >= b) ? a : b;
     }
 

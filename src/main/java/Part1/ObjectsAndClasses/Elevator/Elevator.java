@@ -2,8 +2,8 @@ package main.java.Part1.ObjectsAndClasses.Elevator;
 
 public class Elevator {
     private int currentFloor;
-    private int minFloor;
-    private int maxFloor;
+    private final int minFloor;
+    private final int maxFloor;
 
     public Elevator(int minFloor, int maxFloor) {
         this.minFloor = minFloor;
@@ -30,7 +30,7 @@ public class Elevator {
     }
 
     public void move(int floor) {
-        if (floor > getMaxFloor() | floor < getMinFloor()){
+        if (floor > getMaxFloor() || floor < getMinFloor()){
             System.out.println("You entered the wrong floor.");
             return;
         }

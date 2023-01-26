@@ -10,17 +10,17 @@ public class Calculator {
     }
 
     public void calculate(Operation operation) {
-        System.out.println(operation.action(Calculator.getA(), Calculator.getB()));
+        System.out.println(operation.action(a, b));
         //return operation1.action(Calculator.getA(), Calculator.getB());
     }
 
-    public static int getA() {
+    /*public static int getA() {
         return a;
     }
 
     public static int getB() {
         return b;
-    }
+    }*/
 }
 
 enum Operation {

@@ -1,8 +1,8 @@
 package main.java.Part1.ObjectsAndClasses.Calculator;
 
 public class Calculator {
-    private static int a;
-    private static int b;
+    private int a;
+    private int b;
 
     public Calculator(int a, int b) {
         this.a = a;

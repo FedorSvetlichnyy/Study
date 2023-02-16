@@ -11,8 +11,17 @@ public class Computer {
     private final String vendor;
     private final String name;
 
-
     public Computer(String vendor, String name, CPU cpu, RAM ram, HDD hdd, Display display, Keyboard keyboard) {
+        this.vendor = vendor;
+        this.name = name;
+        this.cpu = cpu;
+        this.ram = ram;
+        this.hdd = hdd;
+        this.display = display;
+        this.keyboard = keyboard;
+    }
+
+    /*public Computer(String vendor, String name, CPU cpu, RAM ram, HDD hdd, Display display, Keyboard keyboard) {
         this.vendor = vendor;
         this.name = name;
         this.cpu = new CPU(cpu.getFrequency(), cpu.getCore(), cpu.getManufacturer(), cpu.getWeight());
@@ -20,7 +29,7 @@ public class Computer {
         this.hdd = new HDD(hdd.getType(), hdd.getSize(), hdd.getWeight());
         this.display = new Display(display.getDiagonal(), display.getType(), display.getWeight());
         this.keyboard = new Keyboard(keyboard.getType(), keyboard.isLight(), keyboard.getWeight());
-    }
+    }*/
 
     public double calculateTotalWeight() {
         return cpu.getWeight() + ram.getWeight() + hdd.getWeight() + display.getWeight() + keyboard.getWeight();
@@ -41,10 +50,10 @@ public class Computer {
 
 final class CPU {
 
-    double frequency;
-    int core;
-    String manufacturer;
-    double weight;
+    private final double frequency;
+    private final int core;
+    private final String manufacturer;
+    private final double weight;
 
     public CPU (double frequency, int core, String manufacturer, double weight){
         this.frequency = frequency;
@@ -56,32 +65,16 @@ final class CPU {
         return frequency;
     }
 
-    public void setFrequency(double frequency) {
-        this.frequency = frequency;
-    }
-
     public int getCore() {
         return core;
-    }
-
-    public void setCore(int core) {
-        this.core = core;
     }
 
     public String getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public String toString(){
@@ -94,9 +87,9 @@ final class CPU {
 }
 final class RAM {
 
-    String type;
-    int size;
-    double weight;
+    private final String type;
+    private final int size;
+    private final double weight;
 
     public RAM (String type, int size, double weight){
         this.type = type;
@@ -108,24 +101,12 @@ final class RAM {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public String toString(){
@@ -137,9 +118,9 @@ final class RAM {
 }
 final class HDD {
 
-    String type;
-    int size;
-    double weight;
+    private final String type;
+    private final int size;
+    private final double weight;
 
     public HDD (String type, int size, double weight){
         this.type = type;
@@ -151,24 +132,12 @@ final class HDD {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public int getSize() {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public String toString(){
@@ -180,9 +149,9 @@ final class HDD {
 }
 final class Display {
 
-    double diagonal;
-    String type;
-    double weight;
+    private final double diagonal;
+    private final String type;
+    private final double weight;
 
     public Display (double diagonal, String type, double weight){
         this.diagonal = diagonal;
@@ -194,24 +163,12 @@ final class Display {
         return diagonal;
     }
 
-    public void setDiagonal(double diagonal) {
-        this.diagonal = diagonal;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public String toString(){
@@ -223,9 +180,9 @@ final class Display {
 }
 final class Keyboard {
 
-    String type;
-    boolean light;
-    double weight;
+    private final String type;
+    private final boolean light;
+    private final double weight;
 
     public Keyboard (String type, boolean light, double weight){
         this.type = type;
@@ -237,24 +194,12 @@ final class Keyboard {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public boolean isLight() {
         return light;
     }
 
-    public void setLight(boolean light) {
-        this.light = light;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public String toString(){

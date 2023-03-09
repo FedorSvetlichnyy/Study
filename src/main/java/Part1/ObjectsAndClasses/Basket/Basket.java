@@ -1,25 +1,33 @@
 package main.java.Part1.ObjectsAndClasses.Basket;
 
+import java.text.DecimalFormat;
+
 public class Basket {
 
     private String items;
     private double totalWeight = 0;
     private int totalPrice = 0;
 
+    static int totalPriceAllBasket;
+    static int totalItems;
+    static int averageItemsPrice; //хотя лучше double, точнее будет
+    static int countBasket = 0;
+
     public Basket() {
         items = "Список товаров: ";
+        countBasket++;
     }
 
     public Basket(String items) {
         this();
         this.items = this.items + items;
     }
+
     public Basket(int totalPrice, double totalWeight, String items) {
         this();
         this.items = this.items + items;
         this.totalPrice = totalPrice;
         this.totalWeight = totalWeight;
-
     }
 
     public void add(String name, int price) {
@@ -38,13 +46,40 @@ public class Basket {
         }
         totalPrice += price;
         totalWeight += weight;
+        setTotalItems(count);
+        setTotalPriceAllBasket(price);
+        setAverageItemsPrice();
 
         items = items + "\n" + name + " - " + count + " шт. - " + price
                 + "\n" + "Общая стоимость товаров в корзине: " + totalPrice
-                + "\n" + "Общий вес товаров в корзине: " + getTotalWeight();
+                + "\n" + "Общий вес товаров в корзине: " + getTotalWeight()
+                + "\n" + "Общая стоимость всех товаров во всех корзинах: " + Basket.totalPriceAllBasket
+                + "\n" + "Общее количество всех товаров во  всех корзинах: " + Basket.totalItems
+                + "\n" + "Средняя цена товара во всех корзинах: " + Basket.averageItemsPrice
+                + "\n" + "Средняя стоимости корзины:  " + averageBasketPrice();
     }
-    public double getTotalWeight(){
+
+    public double getTotalWeight() {
         return totalWeight;
+    }
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public static void setTotalPriceAllBasket(int totalPriceAllBasket) {
+        Basket.totalPriceAllBasket = Basket.totalPriceAllBasket + totalPriceAllBasket;
+    }
+
+    public static void setTotalItems(int totalItems) {
+        Basket.totalItems = Basket.totalItems + totalItems;
+    }
+
+    public static void setAverageItemsPrice() {
+        Basket.averageItemsPrice = totalPriceAllBasket / totalItems;
+    }
+
+    public static int averageBasketPrice() {
+        return totalPriceAllBasket / countBasket;
     }
 
     public void clear() {

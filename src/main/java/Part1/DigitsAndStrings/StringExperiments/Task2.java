@@ -1,11 +1,20 @@
-package Part1.DigitsAndStrings.StringExperiments;
+package main.java.Part1.DigitsAndStrings.StringExperiments;
 
-public class Task2
-{
-    public static void main(String[] args)
-    {
-        String text = "Вася заработал 5000 рублей, Петя - 7563 рубля, а Маша - 30000 рублей";
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
-        System.out.println(text);
+public class Task2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter name: ");
+        String text = scanner.nextLine();
+
+        StringTokenizer Str = new StringTokenizer(text);
+        String string1 = Str.nextToken(" ");
+        String string2 = Str.nextToken(" ");
+        String string3 = Str.nextToken(" ");
+        System.out.println("Surname: " + string1 + "\n"
+                + "Name: " + string2 + "\n"
+                + "Patronymic: " + string3);
     }
 }

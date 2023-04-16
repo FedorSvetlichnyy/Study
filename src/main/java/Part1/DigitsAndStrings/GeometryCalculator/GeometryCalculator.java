@@ -15,10 +15,11 @@ public class GeometryCalculator {
     }
 
     public static boolean isTriangleRightAngled(double a, double b, double c) {
-        if (a + b > c & b + c > a & a + c > b) {
+        /*if (a + b > c & b + c > a & a + c > b) {
             return true;
         }
-        return false;
+        return false;*/
+        return a + b > c & b + c > a & a + c > b;
     }
 
     // перед расчетом площади рекомендуется проверить возможен ли такой треугольник

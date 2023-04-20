@@ -1,4 +1,4 @@
-package Part1.DigitsAndStrings.GeometryCalculator;
+package main.java.Part1.DigitsAndStrings.GeometryCalculator;
 
 public class Main {
     public static void main(String[] args) {

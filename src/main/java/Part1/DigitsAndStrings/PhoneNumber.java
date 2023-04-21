@@ -8,45 +8,40 @@ public class PhoneNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the PhoneNumber: ");
-        String phone = scanner.nextLine();
+        String firstPhoneDigit = scanner.nextLine();
 
-        String phone2 = phone.replaceAll("\\s", "");
-        String phone3 = phone2.replaceAll("\\+", "");
-        String phone4 = phone3.replaceAll("\\-", "");
-        String phone5 = phone4.replaceAll("\\(", "");
-        String phone6 = phone5.replaceAll("\\)", "");
+        String phoneWithoutSymbol = firstPhoneDigit.replaceAll("\\D", "");
 
-        String phone7 = phone6.replaceFirst("8", "7");
+        String phoneReplaceFirstDigit8on7 = phoneWithoutSymbol.replaceFirst("8", "7");
 
-        int dlina = phone7.length();
-        if (dlina == 10) {
+        int phoneLength = phoneReplaceFirstDigit8on7.length();
+        if (phoneLength == 10) {
             try {
-                String phone8 = phone7.substring(0, 1);
-                int x = parseInt(phone8);
+                String phoneOn9 = phoneReplaceFirstDigit8on7.substring(0, 1);
+                int x = parseInt(phoneOn9);
                 if (x == 9) {
-                    String newPhone = '7' + phone7.substring(0);
-                    System.out.println(newPhone);
+                    String correctPhone = '7' + phoneReplaceFirstDigit8on7.substring(0);
+                    System.out.println(correctPhone);
                 } else {
                     System.out.println("Invalid number format: first 9 (8 or 7)");
                 }
             } catch (NumberFormatException e) {
-                System.out.println(e.getMessage() + " Enter valid numder");
+                //System.out.println(e.getMessage() + " Enter valid numder");
+                System.out.println("Enter valid numder");
             }
-        } else if (dlina > 11) {
-            System.out.println("Invalid number format: not 11");
-        } else if (dlina < 10) {
+        } else if (phoneLength > 11 || phoneLength < 10) {
             System.out.println("Invalid number format: not 11");
         } else {
             try {
-                String phone8 = phone7.substring(0, 1);
-                int x = parseInt(phone8);
+                String phoneOn9 = phoneReplaceFirstDigit8on7.substring(0, 1);
+                int x = parseInt(phoneOn9);
                 if (x == 9) {
                     System.out.println("Invalid number format: first not 8 or 7");
                 } else {
-                    System.out.println(phone7);
+                    System.out.println(phoneReplaceFirstDigit8on7);
                 }
             } catch (NumberFormatException e) {
-                System.out.println(e.getMessage() + " Enter valid numder");
+                System.out.println("Enter valid numder");
             }
         }
     }

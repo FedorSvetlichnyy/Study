@@ -9,12 +9,19 @@ public class Task2 {
         System.out.print("Enter name: ");
         String text = scanner.nextLine();
 
-        StringTokenizer Str = new StringTokenizer(text);
+        /*StringTokenizer Str = new StringTokenizer(text);
         String string1 = Str.nextToken(" ");
         String string2 = Str.nextToken(" ");
-        String string3 = Str.nextToken(" ");
-        System.out.println("Surname: " + string1 + "\n"
-                + "Name: " + string2 + "\n"
-                + "Patronymic: " + string3);
+        String string3 = Str.nextToken(" ");*/
+        int value = text.indexOf(' ');
+        String surname = text.substring(0, value);
+        String text2 = text.substring(value + 1);
+        int value2 = text2.indexOf(' ');
+        String name = text2.substring(0, value2);
+        String patronymic = text2.substring(value + 1);
+
+        System.out.println("Surname: " + surname + "\n"
+                + "Name: " + name + "\n"
+                + "Patronymic: " + patronymic);
     }
 }

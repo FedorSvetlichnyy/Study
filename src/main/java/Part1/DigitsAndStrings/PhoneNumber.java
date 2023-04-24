@@ -16,33 +16,26 @@ public class PhoneNumber {
 
         int phoneLength = phoneReplaceFirstDigit8on7.length();
         if (phoneLength == 10) {
-            try {
-                String phoneOn9 = phoneReplaceFirstDigit8on7.substring(0, 1);
-                int x = parseInt(phoneOn9);
-                if (x == 9) {
-                    String correctPhone = '7' + phoneReplaceFirstDigit8on7.substring(0);
-                    System.out.println(correctPhone);
-                } else {
-                    System.out.println("Invalid number format: first 9 (8 or 7)");
-                }
-            } catch (NumberFormatException e) {
-                //System.out.println(e.getMessage() + " Enter valid numder");
-                System.out.println("Enter valid numder");
+            String phoneOn9 = phoneReplaceFirstDigit8on7.substring(0, 1);
+            int x = parseInt(phoneOn9);
+            if (x == 9) {
+                String correctPhone = '7' + phoneReplaceFirstDigit8on7.substring(0);
+                System.out.println(correctPhone);
+            } else {
+                System.out.println("Invalid number format: first 9 (8 or 7)");
             }
+
         } else if (phoneLength > 11 || phoneLength < 10) {
             System.out.println("Invalid number format: not 11");
         } else {
-            try {
-                String phoneOn9 = phoneReplaceFirstDigit8on7.substring(0, 1);
-                int x = parseInt(phoneOn9);
-                if (x == 9) {
-                    System.out.println("Invalid number format: first not 8 or 7");
-                } else {
-                    System.out.println(phoneReplaceFirstDigit8on7);
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Enter valid numder");
+            String phoneOn9 = phoneReplaceFirstDigit8on7.substring(0, 1);
+            int x = parseInt(phoneOn9);
+            if (x == 9) {
+                System.out.println("Invalid number format: first not 8 or 7");
+            } else {
+                System.out.println(phoneReplaceFirstDigit8on7);
             }
+
         }
     }
 }

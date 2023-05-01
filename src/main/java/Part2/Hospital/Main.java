@@ -5,8 +5,9 @@ public class Main {
 
         // используя данный метод, вы можете использовать ваши методы, и проверить их работу на разных
         // значений для проверки и отладки
+        final int PATIENTS_COUNT = 30;
 
-        float[] temperatureData = Hospital.generatePatientsTemperatures(30);
+        float[] temperatureData = Hospital.generatePatientsTemperatures(PATIENTS_COUNT);
         System.out.println(Hospital.getReport(temperatureData));
 
         //Пример вывода в консоль:

@@ -38,17 +38,17 @@ public class Main {
             //TODO: write code here
             int value = input.indexOf(' ');
             String menu;
-            String email;
+            String email = input.substring(value + 1);
             try {
                 menu = input.substring(0, value);
             } catch (StringIndexOutOfBoundsException e) {
                 menu = input;
             }
-            try {
+            /*try {
                 email = input.substring(value + 1);
             } catch (StringIndexOutOfBoundsException e) {
                 email = null;
-            }
+            }*/
             switch (menu) {
                 case "LIST":
                     emailList.printSortedEmails();

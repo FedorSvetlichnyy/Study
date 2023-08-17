@@ -7,18 +7,17 @@ import java.util.Queue;
 public class Main {
     public static void main(String[] args) {
         Queue<Document> print = new LinkedList<>();
-        Printer printer = new Printer(print);
+        Printer printer = new Printer();
         Document document = new Document(2);
         Document document2 = new Document(6);
 
-        printer.append(print, document);
-        printer.append(print, document2);
-        System.out.println(printer.getPendingPagesCount(print));
-        System.out.println(printer.getAllPagesCount(print));
-        //printer.clear(print);
-        printer.print(print);
-        System.out.println(printer.getPendingPagesCount(print));
-        System.out.println(printer.getAllPagesCount(print));
+        printer.append(document);
+        printer.append(document2);
+        System.out.println(printer.getPendingPagesCount());  //8
+        System.out.println(printer.getAllPagesCount());  //8
+        printer.print(); // будет print.clear()
+        System.out.println(printer.getPendingPagesCount());  //0
+        System.out.println(printer.getAllPagesCount()); //8
 
 
 

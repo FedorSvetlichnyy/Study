@@ -5,49 +5,37 @@ import java.util.*;
 
 public class Printer {
 
-    Queue<Document> print = new LinkedList<>();
-    static int countPages;
-    static int allPrintPages;
+    Queue<Document> documentsQueue;
+    private static int countPages;
+    private static int allPrintPages;
 
-    public Printer(Queue<Document> print) {
-        this.print = print;
+    public Printer() {
+        documentsQueue = new LinkedList<>();
     }
 
-    public void append(Queue<Document> print, Document b) {
+    public void append(Document b) {
         countPages += b.getCountPages();
         allPrintPages += b.getCountPages();
-        print.add(b);
+        documentsQueue.add(b);
     }
 
-    public void clear(Queue<Document> print) {
-        print.clear();
+    public void clear() {
+        documentsQueue.clear();
         countPages = 0;
     }
 
-    public void print(Queue<Document> print) {
-        System.out.println(Arrays.toString(print.toArray()));
-        print.clear();
+    public void print() {
+        System.out.println(Arrays.toString(documentsQueue.toArray()));
+        documentsQueue.clear();
         countPages = 0;
     }
 
-    public int getPendingPagesCount(Queue<Document> print) {
+    public int getPendingPagesCount() {
         return countPages;
     }
 
-    public int getAllPagesCount(Queue<Document> print) {
+    public int getAllPagesCount() {
         return allPrintPages;
     }
 
-}
-
-class Document {
-    int countPages;
-
-    public Document(int countPages) {
-        this.countPages = countPages;
-    }
-
-    public int getCountPages() {
-        return countPages;
-    }
 }

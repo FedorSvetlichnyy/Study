@@ -55,7 +55,9 @@ public class Main {
                 if (todoText == null) {
                     System.out.println("Вы не указали никаких дел. Попробуйте еще");
                 } else if (numberOfList >= 0) {
-                    todoList.add(numberOfList, todoText2);
+                    if (numberOfList > (todoList.size() + 1)) {
+                        todoList.add(todoText2);
+                    } else todoList.add(numberOfList, todoText2);
                 } else {
                     todoList.add(todoText);
                 }
@@ -72,20 +74,20 @@ public class Main {
             if (matcherEdit.find()) {
                 if (todoText == null) {
                     System.out.println("Вы ничего не указали. Попробуйте еще");
-                } else if (numberOfList >= 0) {
+                } else if (numberOfList >= 0 && (numberOfList <= todoList.size())) {
                     todoList.edit(numberOfList, todoText2);
                 } else {
-                    System.out.println("Вы ничего не указали. Попробуйте еще");
+                    System.out.println("Вы ничего не указали либо нет указаного индекса в списке дел. Ничего не изменится. Попробуйте еще");
                 }
                 checkingEnteredWords = 0;
             }
             Pattern delete = Pattern.compile("DELETE");
             Matcher matcherDelete = delete.matcher(menu);
             if (matcherDelete.find()) {
-                if (numberOfDelete >= 0) {
+                if (numberOfDelete >= 0 && (numberOfDelete <= todoList.size())) {
                     todoList.delete(numberOfDelete);
                 } else {
-                    System.out.println("Вы ничего не указали для удаления. Попробуйте еще");
+                    System.out.println("Вы ничего не указали для удаления либо нет указаного индекса в списке дел. Ничего не изменится. Попробуйте еще");
                 }
                 checkingEnteredWords = 0;
             }

@@ -1,5 +1,9 @@
 package Part2.CoolNumbers;
 
+import java.lang.reflect.Array;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     /*
     TODO:
@@ -9,6 +13,21 @@ public class Main {
      */
 
     public static void main(String[] args) {
+        List<String> list = CoolNumbers.generateCoolNumbers();
+        CoolNumbers.searchNumber(list, "В111СС134");
+
+        //Напишите в форме ответа, какой поиск — самый быстрый, а какой — самый медленный
+        //находит номер быстрее всего "Поиск в TreeSet": пример ответа -
+        //Поиск перебором: номер найден, поиск занял 7502100нс
+        //Бинарный поиск: номер найден, поиск занял 9413100нс
+        //Поиск в HashSet: номер найден, поиск занял 46400нс
+        //Поиск в TreeSet: номер найден, поиск занял 39300нс
+        //иногда "Поиск в HashSet" быстрее, но это очень редко
+        //Поиск перебором: номер найден, поиск занял 14751300нс
+        //Бинарный поиск: номер найден, поиск занял 9546200нс
+        //Поиск в HashSet: номер найден, поиск занял 43100нс
+        //Поиск в TreeSet: номер найден, поиск занял 47500нс
+
 
     }
 }

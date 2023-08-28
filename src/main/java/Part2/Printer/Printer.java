@@ -18,6 +18,14 @@ public class Printer {
         allPrintPages += b.getCountPages();
         documentsQueue.add(b);
     }
+    public void append(List<Document> documents) {
+        for (Document a: documents) {
+            System.out.println(a);
+            countPages += a.getCountPages();
+            allPrintPages += a.getCountPages();
+            documentsQueue.add(a);
+        }
+    }
 
     public void clear() {
         documentsQueue.clear();

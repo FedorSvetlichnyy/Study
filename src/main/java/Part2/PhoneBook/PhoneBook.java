@@ -10,14 +10,14 @@ public class PhoneBook {
         String menu = input;
         Scanner scanner = null;
         if ("LIST".equals(menu)) {
-            getAllContacts();
+            System.out.println(getAllContacts());
         } else if (checkNameOrNumber(input)){
-            if (getContactByPhone(input) != null) {
+            if (phoneBook.containsValue(input)) {
                 System.out.println(getContactByPhone(input));
             } else {
                 System.out.println("Такого номера в телефонной книге нет. \nВведите имя абонента для номера " + "“" + input + "“" + ":");
-                Scanner scanner2 = new Scanner(System.in);
-                String name = scanner2.nextLine();
+                scanner = new Scanner(System.in);
+                String name = scanner.nextLine();
                 addContact(input, name);
                 System.out.println("Контакт сохранен!");
             }
@@ -26,8 +26,8 @@ public class PhoneBook {
                 System.out.println(getContactByName(input));
             } else if (isCyrillic( input)) {
                 System.out.println("Такого имени в телефонной книге нет. \nВведите номер телефона для абонента " + "“" + input + "“" + ":");
-                Scanner scanner3 = new Scanner(System.in);
-                String number = scanner3.nextLine();
+                scanner = new Scanner(System.in);
+                String number = scanner.nextLine();
                 addContact(number, input);
                 System.out.println("Контакт сохранен!");
             } else System.out.println("Неверный формат ввода");
@@ -46,7 +46,7 @@ public class PhoneBook {
         boolean hasKey = true;
         String removeName = null;
         String addPhone = null;
-        if (hasValue == phoneBook.containsValue(phone)){
+        if (phoneBook.containsValue(phone)){
             for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
@@ -54,7 +54,7 @@ public class PhoneBook {
             }
             phoneBook.remove(removeName);
             phoneBook.put(name, phone);
-        } else if (hasKey == phoneBook.containsKey(name)){
+        } else if (phoneBook.containsKey(name)){
             System.out.println("Это имя уже есть в справочнике, добавим еще один номер");
             for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
                 String key = entry.getKey();
@@ -97,14 +97,20 @@ public class PhoneBook {
         // формат одного контакта "Имя - Телефон" или "Имя - Телефон, Телефон, Телефон ..."
         // если контакт не найден - вернуть пустую строку
           //String element1 =(String) mapA.get("key1");
-        String name = null;
+        /*String name = null;
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
             if (value.equals(phone)) name = key;
         }
         if (name != null) return name;
-        else return null;
+        else return null;*/
+        for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (value.equals(phone)) return key;
+        }
+        return "";
     }
 
     public String getContactByName(String name) {
@@ -116,12 +122,14 @@ public class PhoneBook {
     public Set<String> getAllContacts() {
         // формат одного контакта "Имя - Телефон" или "Имя - Телефон, Телефон, Телефон ..."
         // если контактов нет в телефонной книге - вернуть пустой TreeSet
+        Set<String> phonebook = new TreeSet();
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
-            System.out.println(key + " - " + value);
+            phonebook.add(key + " - " + value);
         }
-        return new TreeSet<>();
+        return phonebook;
+        //return new TreeSet<>();
     }
 
     // для обхода Map используйте получение пары ключ->значение Map.Entry<String,String>

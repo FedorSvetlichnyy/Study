@@ -8,25 +8,23 @@ public class PhoneBook {
 
     public void start(String input){
         String menu = input;
-        Scanner scanner = null;
+        Scanner scanner = new Scanner(System.in);
         if ("LIST".equals(menu)) {
             System.out.println(getAllContacts());
-        } else if (checkNameOrNumber(input)){
+        } else if (checkNumber(input)){
             if (phoneBook.containsValue(input)) {
                 System.out.println(getContactByPhone(input));
             } else {
                 System.out.println("Такого номера в телефонной книге нет. \nВведите имя абонента для номера " + "“" + input + "“" + ":");
-                scanner = new Scanner(System.in);
                 String name = scanner.nextLine();
                 addContact(input, name);
                 System.out.println("Контакт сохранен!");
             }
-        } else if (!checkNameOrNumber(input)){
+        } else if (checkName(input)){
             if (getContactByName(input) != null) {
                 System.out.println(getContactByName(input));
             } else if (isCyrillic( input)) {
                 System.out.println("Такого имени в телефонной книге нет. \nВведите номер телефона для абонента " + "“" + input + "“" + ":");
-                scanner = new Scanner(System.in);
                 String number = scanner.nextLine();
                 addContact(number, input);
                 System.out.println("Контакт сохранен!");
@@ -69,7 +67,20 @@ public class PhoneBook {
         }else phoneBook.put(name, phone);
     }
 
-    public boolean checkNameOrNumber(String s) {
+    public boolean checkName(String s) {
+        long number;
+        try {
+            number = Long.parseLong(s);
+        } catch (NumberFormatException e) {
+            number = 0;
+        }
+        if (number > 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkNumber(String s) {
         long number;
         try {
             number = Long.parseLong(s);

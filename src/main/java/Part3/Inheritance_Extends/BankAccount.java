@@ -1,20 +1,67 @@
 package Part3.Inheritance_Extends;
 
+import java.time.LocalDate;
+
 public class BankAccount {
 
-  public double getAmount() {
-    //TODO: реализуйте метод и удалите todo
-    // верните значение количества денег не счету
-    return 0;
-  }
+    double bankAccount = 0.0;
+    LocalDate lastIncom;
 
-  public void put(double amountToPut) {
-    //TODO: реализуйте метод и удалите todo
-    // метод зачисляет деньги на счет
-  }
+    public double getAmount() {
+        return bankAccount;
+    }
 
-  public void take(double amountToTake) {
-    //TODO: реализуйте метод и удалите todo
-    // метод списывает деньги со счета
-  }
+    public void put(double amountToPut) {
+        if (amountToPut < 0) {
+            bankAccount = bankAccount + 0;
+        } else {
+            bankAccount = bankAccount + amountToPut;
+            lastIncom = LocalDate.now();
+        }
+    }
+
+    public void take(double amountToTake) {
+        if (amountToTake > bankAccount) {
+            bankAccount = bankAccount - 0;
+        } else bankAccount = bankAccount - amountToTake;
+    }
+
+    public boolean send(BankAccount receiver, double amount) {
+        try {
+            receiver.bankAccount = receiver.bankAccount + amount;
+            bankAccount = bankAccount - amount;
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    //test
+    /*public static void main(String[] args) {
+        BankAccount bankAccount1 = new BankAccount();
+        System.out.println(bankAccount1.getAmount());
+        bankAccount1.put(1.3);
+        System.out.println(bankAccount1.getAmount());
+        bankAccount1.take(2.0);
+        System.out.println(bankAccount1.getAmount());
+        bankAccount1.put(-1.3);
+        System.out.println(bankAccount1.getAmount());
+        BankAccount bankAccount2 = new BankAccount();
+        System.out.println(bankAccount2.getAmount());
+        bankAccount1.send(bankAccount2, 1.0);
+        System.out.println(bankAccount1.getAmount());
+        System.out.println(bankAccount2.getAmount());
+        CardAccount cardAccount = new CardAccount();
+        System.out.println(cardAccount.getAmount());
+        cardAccount.put(150.0);
+        System.out.println(cardAccount.getAmount());
+        cardAccount.take(60.0);
+        System.out.println(cardAccount.getAmount());
+        System.out.println(bankAccount1.lastIncom);
+        DepositAccount depositAccount = new DepositAccount();
+        depositAccount.put(2.3);
+        depositAccount.take(1.0);
+    }*/
 }
+
+

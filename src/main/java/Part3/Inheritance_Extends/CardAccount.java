@@ -5,6 +5,6 @@ public class CardAccount extends BankAccount {
     public void take(double amountToTake) {
         if (amountToTake > bankAccount) {
             bankAccount = bankAccount - 0;
-        } else bankAccount = bankAccount - (amountToTake + amountToTake / 100);
+        } else bankAccount = bankAccount - (amountToTake + (amountToTake / 100));
     }
 }

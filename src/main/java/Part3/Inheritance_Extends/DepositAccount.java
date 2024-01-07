@@ -8,7 +8,7 @@ public class DepositAccount extends BankAccount {
     public void take(double amountToTake) {
         LocalDate nowDate = LocalDate.now();
         if (nowDate.minusMonths(1).isBefore(lastIncom)) {
-            System.out.println("A month has not passed since the last replenishment of the account");
+            System.out.println("A month has not passed since the last replenishment of the account.");
         } else {
             if (amountToTake > bankAccount) {
                 bankAccount = bankAccount - 0;

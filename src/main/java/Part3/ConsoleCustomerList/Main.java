@@ -1,5 +1,9 @@
 package Part3.ConsoleCustomerList;
 
+import Part3.ConsoleCustomerList.Exception.InvalidEmail;
+import Part3.ConsoleCustomerList.Exception.InvalidPhoneNumber;
+import Part3.ConsoleCustomerList.Exception.MyException;
+
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +15,7 @@ public class Main {
             commandExamples;
     private static String helpText = "Command examples:\n" + commandExamples;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MyException, InvalidEmail, InvalidPhoneNumber {
         Scanner scanner = new Scanner(System.in);
         CustomerStorage executor = new CustomerStorage();
         for (; ; ) {

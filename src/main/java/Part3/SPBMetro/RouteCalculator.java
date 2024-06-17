@@ -24,13 +24,30 @@ public class RouteCalculator {
         }
 
         route = getRouteWithOneConnection(from, to);
+        if (route != null && route.size() > 0) {
+            return route;
+        }
+
+        route = getRouteWithTwoConnections(from, to);
+        return route;
+
+    }
+    /*public List<Station> getShortestRoute(Station from, Station to) {
+        List<Station> route = getRouteOnTheLine(from, to);
+        if (route != null) {
+            return route;
+        }
+
+        route = getRouteWithOneConnection(from, to);
         if (route != null) {
             return route;
         }
 
         route = getRouteWithTwoConnections(from, to);
         return route;
-    }
+
+    }*/
+
 
     public static double calculateDuration(List<Station> route) {
         double duration = 0;

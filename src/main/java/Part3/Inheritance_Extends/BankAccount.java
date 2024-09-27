@@ -58,9 +58,9 @@ public class BankAccount {
         cardAccount.take(60.0);
         System.out.println(cardAccount.getAmount());
         System.out.println(bankAccount1.lastIncom);
-        DepositAccount depositAccount = new DepositAccount();
-        depositAccount.put(2.3);
-        depositAccount.take(1.0);
+        DepositAccount depositAccount1 = new DepositAccount();
+        depositAccount1.put(2.3);
+        depositAccount1.take(1.0);
     }*/
 }
 

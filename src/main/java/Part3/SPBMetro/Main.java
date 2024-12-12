@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    private static String dataFile = "src/main/resources/part3/spbmetro/map.json";
+    private static String dataFile = "src/main/resources/spbmetro/map.json";
     private static Scanner scanner;
 
     private static StationIndex stationIndex;
@@ -21,18 +21,18 @@ public class Main {
     public static void main(String[] args) {
         RouteCalculator calculator = getRouteCalculator();
 
-        System.out.println("РџСЂРѕРіСЂР°РјРјР° СЂР°СЃС‡С‘С‚Р° РјР°СЂС€СЂСѓС‚РѕРІ РјРµС‚СЂРѕРїРѕР»РёС‚РµРЅР° РЎР°РЅРєС‚-РџРµС‚РµСЂР±СѓСЂРіР°\n");
+        System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
         for (; ; ) {
-            Station from = takeStation("Р’РІРµРґРёС‚Рµ СЃС‚Р°РЅС†РёСЋ РѕС‚РїСЂР°РІР»РµРЅРёСЏ:");
-            Station to = takeStation("Р’РІРµРґРёС‚Рµ СЃС‚Р°РЅС†РёСЋ РЅР°Р·РЅР°С‡РµРЅРёСЏ:");
+            Station from = takeStation("Введите станцию отправления:");
+            Station to = takeStation("Введите станцию назначения:");
 
             List<Station> route = calculator.getShortestRoute(from, to);
-            System.out.println("РњР°СЂС€СЂСѓС‚:");
+            System.out.println("Маршрут:");
             printRoute(route);
 
-            System.out.println("Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ: " +
-                    RouteCalculator.calculateDuration(route) + " РјРёРЅСѓС‚");
+            System.out.println("Длительность: " +
+                    RouteCalculator.calculateDuration(route) + " минут");
         }
     }
 
@@ -48,8 +48,8 @@ public class Main {
                 Line prevLine = previousStation.getLine();
                 Line nextLine = station.getLine();
                 if (!prevLine.equals(nextLine)) {
-                    System.out.println("\tРџРµСЂРµС…РѕРґ РЅР° СЃС‚Р°РЅС†РёСЋ " +
-                            station.getName() + " (" + nextLine.getName() + " Р»РёРЅРёСЏ)");
+                    System.out.println("\tПереход на станцию " +
+                            station.getName() + " (" + nextLine.getName() + " линия)");
                 }
             }
             System.out.println("\t" + station.getName());
@@ -65,7 +65,7 @@ public class Main {
             if (station != null) {
                 return station;
             }
-            System.out.println("РЎС‚Р°РЅС†РёСЏ РЅРµ РЅР°Р№РґРµРЅР° :(");
+            System.out.println("Станция не найдена :(");
         }
     }
 

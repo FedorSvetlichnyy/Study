@@ -2,6 +2,7 @@ package Part4.Library;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Library {
 
@@ -39,9 +40,17 @@ public class Library {
 
         readers = new ArrayList<>();
         readers.add(new Reader("Иванов Иван Иванович", "ivanov.email@test.ru", true));
+        readers.add(new Reader("Петров Сергей Иванович", "petroc.email@test.ru", true));
+        readers.add(new Reader("Сергеев Иван Иванович", "ddd.email@test.ru", true));
+        readers.add(new Reader("Книжник Иван Иванович", "rtgr.email@test.ru", false));
+        readers.add(new Reader("Мальцев Иван Иванович", "maltsev.email@test.ru", false));
         //и так далее для других читателей
 
         readers.get(0).getBooks().add(books.get(1));
+        readers.get(1).getBooks().add(books.get(3));
+        readers.get(2).getBooks().add(books.get(4));
+        readers.get(3).getBooks().add(books.get(5));
+        readers.get(3).getBooks().add(books.get(6));
         //и так далее для других читателей и взятых книг
     }
 
@@ -52,4 +61,6 @@ public class Library {
     public List<Reader> getReaders() {
         return readers;
     }
+
+
 }

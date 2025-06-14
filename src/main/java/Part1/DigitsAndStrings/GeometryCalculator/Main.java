@@ -1,4 +1,4 @@
-package main.java.Part1.DigitsAndStrings.GeometryCalculator;
+package Part1.DigitsAndStrings.GeometryCalculator;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class Main {
 
         System.out.println("\nSphere Volume");
         System.out.println(GeometryCalculator.getSphereVolume(1d));
-        System.out.println(GeometryCalculator.getSphereVolume(57.6));
+        System.out.println(GeometryCalculator.getSphereVolume(57.7));
         System.out.println(GeometryCalculator.getSphereVolume(0));
 
         System.out.println("\nis Triangle Right");
